@@ -5,9 +5,8 @@ const cookieParser = require("cookie-parser");
 const configRoutes = require('./routes');
 var Guid = require("Guid");
 
-// We create our express isntance:
 const app = express();
-app.use(bodyParser.urlencoded({ extended: true })) // for parsing application/json
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
 app.set('view engine', 'handlebars');
