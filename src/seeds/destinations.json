@@ -1,0 +1,22 @@
+[
+    {
+         _id: "a", 
+        name: "Hoboken",
+        region:"New Jersey",
+        climate:"humid continental",
+        rating: 0,
+        numOfRating: 0,
+        comments: [],
+        activities: []
+    },
+    {
+         _id: "b", 
+        name: "New York City",
+        region:"New York",
+        climate:"humid continental",
+        rating: 0,
+        numOfRating: 0,
+        comments: [],
+        activities: []
+    }
+]
