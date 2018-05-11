@@ -1,0 +1,31 @@
+{
+  "name": "Traveloo",
+  "version": "1.0.0",
+  "description": "a website for travel advice",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+git@github.com:WenKSo/Traveloo.git"
+  },
+  "authors": [
+    "Wenkang Su",
+    "Donald Tang",
+    "Shuangchang Li",
+    "Qiuan Wu",
+    "Chenyu Zhao"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/WenKSo/Traveloo#readme",
+  "dependencies": {
+    "bcrypt": "^2.0.0",
+    "body-parser": "^1.18.2",
+    "cookie-parser": "^1.4.3",
+    "express": "^4.16.3",
+    "express-handlebars": "^3.0.0",
+    "uuid": "^3.2.1",
+    "mongodb": "^2.2.33"
+  }
+}
