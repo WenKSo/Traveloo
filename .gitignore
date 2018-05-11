@@ -30,11 +30,12 @@
 ######################
 .DS_Store
 .DS_Store?
+**/.DS_Store
 ._*
 .Spotlight-V100
 .Trashes
 ehthumbs.db
 Thumbs.db
 
-src/node_modules
-src/package-lock.json
+**/node_modules
+**/package-lock.json
