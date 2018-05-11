@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Traveloo</title>
+  <link rel="stylesheet" href="/css/site.css">
+</head>
+
+<body>
+  <header>
+    <a href="/" class="title">
+      <h1>Traveloo</h1>
+    </a>
+
+    <nav>
+      <form id="search" action="/result" method="get">
+        <input name="query" type="text" placeholder="Search a Destination" id="query">
+        <input type="submit" value="Search">
+      </form>
+
+      <div class="accountLinks">
+        {{#if user}}
+            <a href="/profile">{{user.username}}</a> |
+            <a href="/logout">Not you? Logout.</a>
+        {{else}}
+          <a href="/login" class="account">Log In</a>
+          <a href="/registration" class="signup">Sign Up</a>
+        {{/if}}
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    {{{ body }}}
+  </main>
+</body>
+
+</html>

@@ -1,0 +1,26 @@
+{{#if error}}
+<div id="form-error" class="form-error">
+  <h3>Error:</h3>
+  {{ error }}
+</div>
+{{/if}}
+
+<article class="resultPage">
+	<table class="destination">
+		{{#each searchResults}}
+		<tr>
+			<td>
+				<a href="/movies/{{this._id}}" class="title">
+					<h3>{{this.name}}</h3>
+				</a>
+				<h3>{{this.region}}</h3>
+				<p>{{this.climate}}</p>
+                <p>{{this.rating}}</p>
+                <p>{{this.numOfRating}}</p>
+			</td>
+			{{else}}
+				<td>No results</td>
+		</tr>
+		{{/each}}
+	</table>
+</article>
