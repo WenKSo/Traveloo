@@ -3,7 +3,11 @@ const MongoClient = require("mongodb").MongoClient;
 const settings = {
 	mongoConfig: {
 		serverUrl: "mongodb://localhost:27017/",
+<<<<<<< HEAD
 		database: "Final-Project"
+=======
+		database: "traveloo"
+>>>>>>> 0eb5c1ac7853961d6c27077f24bdfa3104c301ff
 	}
 };
 
