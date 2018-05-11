@@ -35,7 +35,7 @@ async function loginUser(username, password) {
 		return false;
 }
 
-const createUser = async function createUser(name, password, gender, interest, searchHistory) {
+const createUser = async function createUser(name, password, gender, searchHistory) {
 
     if (!name)
         throw "You must provide name and description";
@@ -47,7 +47,6 @@ const createUser = async function createUser(name, password, gender, interest, s
             name: name,
             password: password,
             gender: gender,
-            interest, interest,
             history: searchHistory
         };
 
@@ -123,8 +122,25 @@ const updateUser = async function updateUser(userId, input, destination) {
 
 }
 
+const checkPassword = async function checkPassword(username, password) {
+    if (!username || typeof username != 'string' || !password || typeof password != 'string')
+        throw "Invalid username or password."
+
+    try {
+        var user = getExistingUser(username)
+    } catch (error) {
+        return false;
+    }
+
+    if (getExistingUser(username).password == password) {
+        return true;
+    } else {
+        return false;
+    }
+}
 
 module.exports = {
+	checkPassword,
 	getUserByUsername,
 	loginUser,
 	getUser,

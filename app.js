@@ -3,7 +3,7 @@ const exphbs =  require('express-handlebars');
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 const configRoutes = require('./routes');
-var Guid = require("Guid");
+// var Guid = require("Guid");
 
 const app = express();
 app.use(bodyParser.urlencoded({ extended: true }));

@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const userData = require("../data/users");
+const userData = require("../data/users")
 const uuid = require('uuid/v4');
 const { getUserFromCookie } = require("../public/js/cookieFunctions");
 
@@ -15,29 +15,28 @@ router.get("/", async (req, res) => {
 	}
 });
 
-router.post("/", async (req, res) => {
-	const username = req.body.username;
-	const password = req.body.password;
+router.post("/", async(req, res) =>
+{
+    const username = req.body.name;
+    const password = req.body.password;
 
-	let error_message = "Incorrect username/password."
-	let user = undefined;
-
-	try {
-		user = await userData.loginUser(username, password);
-	} catch (e) {
-		error_message = "Empty username/password."
-	}
-
-	if (user) {
-		// Create cookie
-
-		res.redirect("/account");
-	} else {
-		let data = {
-			error: error_message
-		}
-		res.render("login", data);
-	}
+    var error_message = "Incorrect username/password."
+    var auth = false;
+    try {
+        auth = await userData.checkPassword(username, password);
+        console.log(auth);
+    } catch (e) {
+        error_message = "Invalid username/password"
+    }
+    if(auth) {
+        res.redirect("/account");
+    } else {
+        var errdata = {
+            title: "Home",
+            error: error_message
+        }
+        res.render("login", errdata);
+    }
 });
 
 module.exports = router;
