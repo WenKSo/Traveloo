@@ -6,7 +6,6 @@ const { getUserFromCookie } = require("../public/js/cookieFunctions");
 
 router.get("/:_id", async (req, res) => {
 	let user = await getUserFromCookie(req);
-
 	try {
 		let _id = req.params._id;
 		let destination = await destData;

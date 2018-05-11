@@ -1,0 +1,22 @@
+[
+    {
+        "_id": "a",
+        "name": "Qiuan WU",
+        "history": [
+            {
+                "input": {
+                    "Climate": "Sunny",
+                    "Region": "California"
+                },
+                "destination": "Los Angeles"
+            },
+            {
+                "input": {
+                    "Climate": "rainy",
+                    "Region": "Northwest"
+                },
+                "destination": "Seattle"
+            }
+        ]
+    }
+]

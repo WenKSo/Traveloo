@@ -1,6 +1,6 @@
 const mongoCollections = require("../config/mongoCollections");
 const climates = mongoCollections.climates;
-const uuid = require("node-uuid");
+const uuid = require("uuid/v4");
 
 async function getAllClimates(){
         const climateCollection = await climates();
@@ -14,12 +14,14 @@ async function getClimateByName(){
     }
 
 async function addClimate(name){
+        if (typeof name !== "string") throw "No climate name provided";
         const climateCollection = await climates();
         
         return await climateCollection.find({}).toArray();
     }
 
 async function addCityId(name, cityId){
+        if (typeof name !== "string") throw "No climate name provided";
         const climateCollection = await climates();
         const newClimate = {
           _id: uuid.v4(),

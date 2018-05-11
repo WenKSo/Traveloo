@@ -6,7 +6,6 @@ const { getUserFromCookie } = require("../public/js/cookieFunctions");
 
 router.get("/", async (req, res) =>{
     let user = await getUserFromCookie(req);
-
     try{
         let searchInfo = req.query['query'];
         console.log(searchInfo);

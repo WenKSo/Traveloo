@@ -7,7 +7,6 @@
         "rating": 0,
         "numOfRating": 0,
         "comments": [],
-        "activities": []
     },
     {
         "_id": "b", 
@@ -17,6 +16,5 @@
         "rating": 0,
         "numOfRating": 0,
         "comments": [],
-        "activities": []
     }
 ]
