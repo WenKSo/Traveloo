@@ -1,0 +1,58 @@
+<section>
+
+    <div id = "banner">
+      <div id = "name">
+          Register
+      </div>
+      
+      <div id = "heading">
+          Sign up and find the adventure of a lifetime.
+      </div>
+    </div>
+
+    <div id = "register-form">
+    <form method="post" >
+
+        <li class="register-item">
+            <span>Username: </span>
+            <input type="text" name="user" value=""/>
+            <span id="count-msg" class="error"></span>
+        </li>
+        <li class="register-item">
+            <span>Password: </span>
+            <input type="password" name="confirm" value="" />
+            <span id="count-msg" class="error"></span>
+        </li>
+        <li class="register-item">
+            <span>Confirm Password: </span>
+            <input type="password" name="pw" value="" />
+            <span id="count-msg" class="error"></span>
+        </li>
+        <li class="register-item">
+            <span>Gender: </span>
+            <input type="radio" name="sex" id="gender1" value="male" />
+            <label for="gender1">male</label>
+            <input type="radio" name="sex" id="gender2" value="female" />
+            <label for="gender2">female</label>
+            <span id="count-msg" class="error"></span>
+        </li>
+        <li class="register-item">
+            <span>Preferred Continent to Travel To: </span>
+            <select name="continent">
+            <option value="1">Asia</option>
+            <option value="2">Europe</option>
+            <option value="3">North America</option>
+            <option value="4">South America</option>
+            <option value="5">Africa</option>
+            <option value="6">Antartica</option>
+            <option value="7">Oceania</option>
+            </select>
+            <span id="count-msg" class="error"></span>
+        </li>
+        <div id = "button">
+            <input type="submit" value="register" />
+            <input type="reset" value="reset" />
+        </div>
+    </form>
+    </div>
+</section>

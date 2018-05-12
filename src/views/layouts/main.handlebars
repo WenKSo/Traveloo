@@ -1,39 +1,33 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
-  <meta charset="utf-8">
-  <title>Traveloo</title>
-  <link rel="stylesheet" href="/css/site.css">
+    <link rel="shortcut icon" href="../../public/images/icon.png"/>
+    <meta charset="utf-8">
+    <title>Traveloo - Find Your Next Adventure!</title>
+    <link href='http://fonts.googleapis.com/css?family=Oxygen' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="../../public/site.css">
 </head>
-
 <body>
-  <header>
-    <a href="/" class="title">
-      <h1>Traveloo</h1>
-    </a>
-
-    <nav>
-      <form id="search" action="/result" method="get">
-        <input name="query" type="text" placeholder="Search a Destination" id="query">
-        <input type="submit" value="Search">
-      </form>
-
-      <div class="accountLinks">
-        {{#if user}}
-            <a href="/profile">{{user.username}}</a> |
-            <a href="/logout">Not you? Logout.</a>
-        {{else}}
-          <a href="/login" class="account">Log In</a>
-          <a href="/registration" class="signup">Sign Up</a>
-        {{/if}}
+    <div id = "header">
+           <header>
+        <nav id = "navbar">
+            <ul>
+                <a href="/main"><li id="blogo">TRAVELOO</li></a>
+                <a href="/adventure"><li>Adventure</li></a>
+                <a href="/destinations"><li>Travel Destinations</li></a>
+                <a href="/login"><li>Login</li></a>
+                <a href="/register" id = "register"><li>Register</li></a>
+            </ul>
+        </nav>
+    </header>
       </div>
-    </nav>
-  </header>
+      
+    <main>
+        {{{body}}}
+    </main>
 
-  <main>
-    {{{ body }}}
-  </main>
-</body>
-
+        <div id = "copyrightbar">
+          &copy; Copyright 2018 by Traveloo. All Rights Reserved.
+      </div>
+  </body>
 </html>

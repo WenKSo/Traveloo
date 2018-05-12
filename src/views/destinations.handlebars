@@ -1,0 +1,38 @@
+<section>
+    <div id = "banner">
+      <div id = "name">
+          Travel Destinations
+      </div>
+      
+      <div id = "heading">
+          Recommended destinations for everyone.
+      </div>
+    
+    </div>
+
+
+    <div id = "destBlock">
+        <!--<ul>
+            <li class = "picList">
+                <img src="../../public/images/travel1.jpg" alt="dj" id="dj1" />
+                <div id = "description">{{desc}}</div>
+            </li>
+            <li class = "picList"><img src="../../public/images/travel2.jpg" alt="dj" id="dj1" /></li>
+            <li class = "picList"><img src="../../public/images/travel3.jpg" alt="dj" id="dj1" /></li>
+        </ul>-->
+         {{#each destination}}  
+        <article class="destination">
+        <!--<h2><a href="/posts/{{_id}}">{{title}}</a></h2>-->
+        <p>{{name}}</p>
+        <p>{{region}}</p>
+        <p>{{climate}}</p>
+        <p>{{rating}}</p>
+        <p>{{numOfRating}}</p>
+        <p>{{comments}}</p>
+        </article>
+        {{/each}}
+    </div>
+
+
+
+</section>

@@ -2,41 +2,51 @@ const express = require("express");
 const router = express.Router();
 const userData = require("../data/users")
 const uuid = require('uuid/v4');
-const { getUserFromCookie } = require("../public/js/cookieFunctions");
 
-router.get("/", async (req, res) => {
-	let user = await getUserFromCookie(req);
-
-	// Redirect to /account if already logged in
-	if (user) {
-		res.redirect("/account");
-	} else {
-		res.render("login");
-	}
+router.get("/", (req, res) => {
+  res.render("login");
 });
 
 router.post("/", async(req, res) =>
 {
-    const username = req.body.name;
+    const username = req.body.username;
     const password = req.body.password;
+    let errors = [];
 
-    var error_message = "Incorrect username/password."
     var auth = false;
     try {
+        console.log("reach 1");
+        console.log(username);
+        console.log(password);
         auth = await userData.checkPassword(username, password);
         console.log(auth);
     } catch (e) {
-        error_message = "Invalid username/password"
+        console.log("reach 2");
+        errors.push("Invalid username/password");
+        res.render("login", {
+            errors: errors,
+            hasErrors: true,
+            error: e
+        });
+        return;
     }
+
+    const tempUser = await userData.getExistingUser(username);
+    console.log(tempUser);
+    console.log(tempUser.name);
+    console.log(tempUser.history);
+    console.log(tempUser.gender);
     if(auth) {
-        res.redirect("/account");
+        var data = {
+            username: tempUser.name, 
+            gender: tempUser.gender,
+            history: tempUser.history
+            };
+        res.render("profile",data);
     } else {
-        var errdata = {
-            title: "Home",
-            error: error_message
-        }
-        res.render("login", errdata);
+        res.redirect("/login");
     }
 });
 
 module.exports = router;
+

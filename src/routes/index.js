@@ -1,22 +1,25 @@
-const accountRoute = require("./account");
-const destRoute = require("./destination");
-const resultRoute = require("./result");
-const homeRoute = require("./home");
-const loginRoute = require("./login");
-const registrationRoute = require("./registration");
-const { getUserFromCookie } = require("../public/js/cookieFunctions");
+const express = require("express");
+const adventureRoutes = require("./adventure");
+const destRoutes = require("./dest");
+const logRoutes = require("./login");
+const registerRoutes = require("./register");
+const profileRoutes = require("./profile");
 
-function constructorMethod(app) {
-    app.use("/home", homeRoute);
-    app.use("/account", accountRoute);
-    app.use("/destination", destRoute);
-    app.use("/result", resultRoute);
-    app.use("/login", loginRoute);
-    app.use("/registration", registrationRoute);
-    app.use("*", async (req, res) => {
-        res.redirect("/home");
-        
-    });
+const constructorMethod = app => { 
+
+  app.use("/adventure", adventureRoutes);
+  app.use("/destinations", destRoutes);
+  app.use("/login", logRoutes);
+  app.use("/register", registerRoutes);
+  app.use("/profile", profileRoutes);
+  app.use("/", (req, res) => {
+    res.render("splash");
+  });
+  
+
+  app.use("*", (req, res) => {
+    res.redirect("layouts/main");
+  });
 };
 
 module.exports = constructorMethod;

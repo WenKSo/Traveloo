@@ -1,18 +1,22 @@
 const express = require("express");
-const exphbs =  require('express-handlebars');
 const bodyParser = require("body-parser");
-const cookieParser = require("cookie-parser");
-const configRoutes = require('./routes');
-// var Guid = require("Guid");
-
 const app = express();
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(cookieParser());
-app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
-app.set('view engine', 'handlebars');
-app.use(express.static(__dirname + '/public'));
+const static = express.static(__dirname + "/public");
+const exphbs = require('express-handlebars');
+const configRoutes = require("./routes");
+
+app.use("/public", static);
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true}));
+
+app.engine("handlebars", exphbs({ defaultLayout: "main" }));
+app.set("view engine", "handlebars"); 
+app.set('views', __dirname + '/views');
+app.use(express.static('public'));
+
 configRoutes(app);
 
-app.listen(3000, function() {
-    console.log("Your server is now listening on port 3000! Navigate to http://localhost:3000 to access it");
+app.listen(3000, () => {
+  console.log("We've now got a server!");
+  console.log("Your routes will be running on http://localhost:3000");
 });
