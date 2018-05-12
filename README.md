@@ -1,12 +1,13 @@
 # Traveloo
 2018S CS546 Final Project
 Members: WenKang Su, Qiuan Wu, Chenyu Zhao, Shuangchang Li, Donald Tang
+
 Description: Travel website
 
 How to set up our project
 
 1. Before starting, make sure to have mongodb running.
-2. In a terminal, navigate to our project folder. Run “npm start” to start running the program
+2. In a terminal, navigate to our src folder. Run '''npm start'' to start running the program
 3. In a browser, navigate to localhost:3000 to view the website
 4. The default page will be the splash (welcome) page.
 5. A user may use the website anonymously, or register an account and log in.
