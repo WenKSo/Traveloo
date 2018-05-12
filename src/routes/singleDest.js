@@ -39,10 +39,10 @@ router.post("/addComment", async (req, res)=>{
     let _id = pid.substr(pid.lastIndexOf('/') +1);
 
     let dest = await destData.getDestinationByID(_id);
-    let text = req.body;
+    let text = req.body.comments;
     console.log(_id);
     console.log(text);
-    destData.addComments(dest, user, text);
+    await destData.addComments(dest, text);
     res.redirect("/singleDest/" + _id);
 });
 

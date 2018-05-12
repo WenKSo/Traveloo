@@ -18,7 +18,7 @@ router.get("/", async (req, res) =>{
     let user = await getUserFromCookie(req);
 
     if(user) {
-
+        
         data ={
             user
         }

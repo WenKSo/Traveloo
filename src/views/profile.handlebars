@@ -1,16 +1,24 @@
 <section>
-<header>
-    <h2>{{username}}</h2>
-</header>
+<div id = "banner">
+      <div id = "name">
+          User Profile
+      </div>
+      
+      <div id = "heading">
+          Welcome back to Traveloo, {{username}}!
+      </div>
+    </div>
 
 <article>
-    <p>Password: {{password}}</p>
-    <p>Gender: {{gender}}</p>
-    <p>Search History: {{history}}</p>
-
-    <button class = "logout">
-        <a href="/logout">Logout.</a>
-    </button>
+    <div id = "accBlock">
+    <div id = "accDetails">
+        <p>Gender: {{gender}}</p>
+        <p>Search History: {{history}}</p>
+    </div>
+    <div id = "button">
+        <div><a href="/logout">Logout</a></div>
+    </div>
+    </div>
 </article>
 
 </section>

@@ -10,7 +10,8 @@ const destinationList = [
         climate: "humid continental",
         rating: 0,
         numOfRating: 0,
-        comments: []
+        comments: [],
+        img: "img1.jpg"
     },
     {
         name: "Paris",
@@ -18,7 +19,8 @@ const destinationList = [
         climate: "oceanic",
         rating: 0,
         numOfRating: 0,
-        comments: []
+        comments: [],
+        img: "img2.jpg"
     },
     {
         name: "London",
@@ -26,7 +28,8 @@ const destinationList = [
         climate: "temperate oceanic",
         rating: 0,
         numOfRating: 0,
-        comments: []
+        comments: [],
+        img: "img3.jpg"
     },
     {
         name: "Hawaii",
@@ -34,7 +37,8 @@ const destinationList = [
         climate: "tropical",
         rating: 0,
         numOfRating: 0,
-        comments: []
+        comments: [],
+        img: "img4.jpg"
     },
     {
         name: "Vancouver",
@@ -42,7 +46,8 @@ const destinationList = [
         climate: "oceanic",
         rating: 0,
         numOfRating: 0,
-        comments: []
+        comments: [],
+        img: "img5.jpg"
     },
     {
         name: "Beijing",
@@ -50,7 +55,8 @@ const destinationList = [
         climate: "temperate continental",
         rating: 0,
         numOfRating: 0,
-        comments: []
+        comments: [],
+        img: "img6.jpg"
     },
 
 ]
@@ -152,18 +158,30 @@ async function loadAllDestination() {
     return true;
 }
 
-async function addComments(destination, author, text) {
-    if (typeof author !== "string") throw "No author provided";
+async function addComments(destination, text) {
     // if (typeof title !== "string") throw "No title provided";
     if (typeof text !== "string") throw "No text provided";
 
     const newComment = {
-        author: author,
         // title: title,
         text: text
     };
-
-    destination.comments.push(newComment);
+    // console.log("1");
+    // console.log("2");
+    
+    const destCollection = await destinations();
+    // console.log("3");
+    let _id = destination._id;
+    // console.log("4");
+    destCollection.update(
+        {_id: _id},
+        {$set:
+            {
+                comments: newComment
+            }
+        }
+    )
+    // console.log(destination.comments.text);
 }
 
 async function updateRating(destination, score) {

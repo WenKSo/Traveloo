@@ -7,20 +7,24 @@
 
 </div>
         <div class="login_form">
-            <form id="Login" name="Login" method="post">
+            <form id="Login" name="Login" method="POST">
+            <ul>
                 <li class="login-item">
                         <span>Username: </span>
                         <input type="text" id="username" name="username" class="login_input">
                         <span id="count-msg" class="error"></span>
                 </li>
-                    <li class="login-item">
-                        <span>Password: </span>
-                        <input type="password" id="password" name="password" class="login_input">
-                        <span id="password-msg" class="error"></span>
-                    </li>
-                    <div id = "button">
+                <li class="login-item">
+                    <span>Password: </span>
+                    <input type="password" id="password" name="password" class="login_input">
+                    <span id="password-msg" class="error"></span>
+                </li>
+                <li>
+                    <span id = "button">
                         <button type="submit" id="login_buttion">Login</button>
-                    </div>
+                    </span>
+                </li>
+            </ul>
             </form>
         </div>
 

@@ -23,12 +23,13 @@
          {{#each destination}}  
         <article class="destination">
         <!--<h2><a href="/posts/{{_id}}">{{title}}</a></h2>-->
-        <p>{{name}}</p>
-        <p>{{region}}</p>
-        <p>{{climate}}</p>
-        <p>{{rating}}</p>
-        <p>{{numOfRating}}</p>
-        <p>{{comments}}</p>
+        <h2>{{name}}</h2>
+        <img src="../public/images/{{img}}" alt="img"/>
+        <p>Region: {{region}}</p>
+        <p>Climate: {{climate}}</p>
+        <p>Rating: {{rating}}</p>
+        <p>Number of Ratings: {{numOfRating}}</p>
+        <p>Comments: {{comments}}</p>
         </article>
         {{/each}}
     </div>
