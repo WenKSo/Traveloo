@@ -55,6 +55,8 @@ const destinationList = [
 
 ]
 
+
+
 async function getDestinationByName(name) {
     if (!name) throw "No destination name provided";
     const destCollection = await destinations();
@@ -64,10 +66,12 @@ async function getDestinationByName(name) {
 async function getDestinationByID(_id) {
     try {
         if (!_id || typeof _id !== "string") {
+            // console.log(_id);
             throw "ID must be a non-empty string";
         }
-
+        // console.log("6");
         let destCollection = await destinations();
+        // console.log("7");
         return await destCollection.findOne({
             _id: _id
         });
@@ -89,12 +93,22 @@ async function searchDestination(searchInfo) {
 
         // console.log(await destCollection.find({name: "hoboken"}).toArray());
         // console.log(await destCollection.find({name: "london"}).toArray());
-        let searchResults = await destCollection.find(
+        let nameResult = await destCollection.find(
             {
-                name: regEx,
+                name: regEx
             }).toArray();
+        // let climateResult = await destCollection.find(
+        //     {
+        //         climate: regEx
+        //     }).toArray();
+        // let RegionResult = await destCollection.find(
+        //     {
+        //         region: regEx
+        //     }).toArray();
+        // let finalresult = {$setUnion: [nameResult, climateResult]}.toArray();
+        // console.log(finalresult);
+        return nameResult;
 
-        return searchResults;
     } catch (e) {
         throw e;
     }
@@ -114,16 +128,16 @@ async function addDestination(destination) {
     };
     // if(newDestination.name == destCollection.find({name: newDestination.name}).name){}
     // console.log("new Destination");
-    console.log("here");
+    // console.log("here");
     if ((await destCollection.find({ name: newDestination.name }).toArray())[0] != undefined) {
         if ((await destCollection.find({ name: newDestination.name }).toArray())[0].name != newDestination.name) {
-            console.log("loged");
+            // console.log("loged");
             const newInsert = await destCollection.insertOne(newDestination);
             const newName = newInsert.name;
             return await getDestinationByName(newName);
         }
     } else {
-        console.log("loged");
+        // console.log("loged");
         const newInsert = await destCollection.insertOne(newDestination);
         return true;
     }
@@ -170,5 +184,6 @@ module.exports = {
     addDestination,
     updateRating,
     loadAllDestination,
-    searchDestination
+    searchDestination,
+    destinationList
 };

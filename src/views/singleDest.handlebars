@@ -1,0 +1,27 @@
+<article class="destination">
+    <header>
+        <h2>{{dest.name}}</h2>
+    </header>
+	
+    <div>
+        <p>Region: {{dest.region}}</p>
+        <p>Climate: {{dest.climate}}</p>
+        <p>Rating: {{dest.rating}}</p>
+        <p>Number of Ratings: {{dest.numOfRating}}</p>
+    </div>
+</article>
+
+<section class="comments">
+    <header>
+        <h3>Comments:</h3>
+    </header>
+
+    <p>{{comments}}</p>
+    <h4>Add a Comment: </h4>
+    <form id="addComment-form" action="/singleDest/addComment" method="POST">
+        <textarea name="comments" id="comments">How do you like it?</textarea>
+        <br>
+
+        <input type="submit" value="Submit">
+    </form>
+</section>
